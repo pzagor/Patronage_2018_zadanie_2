@@ -1,6 +1,9 @@
 
-	var movies2 =[];
-		movies2 = [
+	
+
+export default class MoviesStorage {
+	constructor(){
+			this.movies = [
 			    {
 			        "id": 1,
 			        "title": "The Shawshank Redemption",
@@ -58,81 +61,37 @@
 			        "seen": "F"
 			    }
 				];
+		
+}
+	get(id){
+	  if(typeof id !== "undefined") {
+	  	for (var i = this.movies.length - 1; i >= 0; i--) {
 
-export default class MoviesStorage {
-
-
-	constructor(){
-		myStorage = localStorage;
-		var mvs = localStorage.getItem('movies');
-		console.log('mvs: ' + mvs);
-
-		var movies = [];
-		var myStorage = localStorage;
-		var mvs = localStorage.getItem('movies');
-		console.log('mvs: ' + mvs);
-		if (Array.isArray(mvs))
-		{
-		console.log('isArray');
-
-		}
-		else
-		{
-		    console.log('isnotArray');
-		localStorage.setItem('movies', movies2);
-		}
-
-	};
-
-	//konstruktor
-
-	// movies czy jest tablica
-	//jesli nie wrzuc tam jsona z data
-
-	// get()` - zwraca listę wszystkich filmów
-
-	 get() {
-		 return movies;
-	}
-
-	// ii. `get(id)` - zwraca obiekt filmu o podanym id
-	 get(id){
-		//petla po movies z szukaniem tegoz id
-		// to na pewwno ladniej sie da zrobic ale jak? poszperac podpytac
-		for (var i = movies.length - 1; i >= 0; i--) {
-
-			if(movies.id = id){
-
+			if(this.movies.id = id){
+				return this.movies[i];
 			}
 		}
-	}
+	  }
+	  return this.movies;
+	};
 
 
-// iii. `set(data)` - dodaje nowy film do tablicy filmów
+ 	set(id, data){
+	  if(typeof data !== "undefined") {
+	  	for (var i = this.movies.length - 1; i >= 0; i--) {
+			if(this.movies.id = id){
+				this.movies[i] = data;
+				return;
+			}
+		}
+	  }
+		this.movies.push(id);
+	};
 
-	 set(data) {
-		movies.add(data) // walidacja jakas?
-	 }
-
-// iv. `set(id, data)` - aktualizuje film o danym id o dane
-
-	 set(id, data) {
-		
-	} 
-
-// v. `remove(id)` - usuwa film o podanym id
 
 	 remove(id) {
-		
+
 	} 
 
-// v. `remove(id)` - usuwa film o podanym id
 
 }
-
-
-
-
-// Jest odpowiedzialny za operowanie na filmach, a jako że zmienna `moviesData` 
-// już nie istnieje, wszystkie miejsca w twoje aplikacji powinny być odpowiednio zrefaktorowane.
-// oswiezanie listy po kliknieciu oraz czytanie 
